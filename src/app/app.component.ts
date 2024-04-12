@@ -1,0 +1,17 @@
+import {Component} from '@angular/core';
+import {AsyncPipe, JsonPipe} from '@angular/common';
+import { SharedModule } from './shared/shared.module';
+import { SharedService } from './shared/services/shared.service';
+import { HttpClientModule } from '@angular/common/http';
+ 
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [AsyncPipe, JsonPipe,SharedModule,HttpClientModule],
+  providers:[SharedService],
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  name = 'Angular';
+
+}

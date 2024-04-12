@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card">
+      <div class="card-header">Stepepr 1</div>
+  
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <label>Choose  Model</label>
+            <select [(ngModel)]="codeCar" class="form-select form-select-sm" (change)="selectCar()" id="modelSelect">
+                <option *ngFor="let car of cars" [ngValue]="car.code">
+                    {{car.description}}
+                </option>
+            </select>
+            
+  
+          </div>
+          <div class="col-6">
+            <label>Choose  color</label>
+            <select [(ngModel)]="colorCar" class="form-select form-select-sm" [disabled]="!codeCar" id="colorSelect" (change)="selectColor()">
+                <option *ngFor="let color of colorsModelSelected" [ngValue]="color.code">
+                    {{color.description}}
+                </option>
+            </select>
+            
+  
+          </div>
+          <div class="col-12" *ngIf="imgUrl">
+            <hr>
+            <img src="{{imgUrl! | formatUrlImg }}">
+           
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
