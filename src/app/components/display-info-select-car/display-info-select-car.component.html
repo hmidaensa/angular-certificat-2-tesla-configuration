@@ -24,10 +24,10 @@
                 <p>{{infoOptionCosts.color?.price| currency :"USD"}}</p>
              </div>
 
-             <div class="col-6">
+             <div class="col-6" *ngIf="infoOptionCosts.towHitchConfig">
                  <p>Tow Hitch Package</p>
              </div>
-             <div class="col-6">
+             <div class="col-6" *ngIf="infoOptionCosts.towHitchConfig">
                   <div *ngIf="infoOptionCosts.towHitch;else tow">
                     <p>{{infoOptionCosts.towHitchPrice | currency :"USD"}}</p>
                   </div>
@@ -36,10 +36,11 @@
                   </ng-template>
                   
             </div>
-            <div class="col-6">
+            
+            <div class="col-6" *ngIf="infoOptionCosts.yokeConfig">
                 <p>Yoke Package</p>
             </div>
-            <div class="col-6">
+            <div class="col-6" *ngIf="infoOptionCosts.yokeConfig">
                  <div *ngIf="infoOptionCosts.yoke;else yoke">
                    <p>{{infoOptionCosts.yokePrice | currency :"USD"}}</p>
                  </div>

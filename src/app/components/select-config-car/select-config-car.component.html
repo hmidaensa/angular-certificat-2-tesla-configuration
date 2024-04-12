@@ -18,11 +18,11 @@
             <span>Cost : {{ infoOptionCosts.price | currency :'USD'}} </span>
           </div>
 
-          <div class="col-12 form-check" *ngIf="infoOptionCosts.range">
+          <div class="col-12 form-check" *ngIf="optionConfig?.towHitch">
             <label>Tow Hitch ?</label>
             <input type="checkbox" [(ngModel)]="infoOptionCosts.towHitch" class="form-check-input" id="includeTow" (change)="changeExtraOption($event)"/>
           </div>
-          <div class="col-12 form-check" *ngIf="infoOptionCosts.range">
+          <div class="col-12 form-check" *ngIf="optionConfig?.yoke">
             <label>Yoke steering wheel ?</label>
             <input type="checkbox" [(ngModel)]="infoOptionCosts.yoke" class="form-check-input" id="includeYoke" (change)="changeExtraOption($event)"/>
           </div>

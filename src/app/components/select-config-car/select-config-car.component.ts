@@ -22,6 +22,9 @@ export class SelectConfigCarComponent implements OnInit {
 
     this.sharedService.getConfigModelColorSelected().subscribe((data) => {
       this.optionConfig = data;
+      this.sharedService.setAdditionallyConfig(this.optionConfig);
+
+      console.log(this.sharedService.optionConfig());
     });
   }
 

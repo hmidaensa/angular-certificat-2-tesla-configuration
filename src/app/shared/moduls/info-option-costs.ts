@@ -14,4 +14,6 @@ export class InfoOptionCosts {
     imgUrl?:string;
     towHitchPrice?:number;
     yokePrice?:number;
+    towHitchConfig?: boolean;
+    yokeConfig?: boolean;
 }

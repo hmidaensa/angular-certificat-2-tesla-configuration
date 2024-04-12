@@ -49,7 +49,7 @@ export class SharedService {
   setSelectedColor(color: Color): void {
     this.optionConfig.set(new InfoOptionCosts());
     this.colorCarSelected.set(color);
-     this.optionConfig.update((item) => {
+    this.optionConfig.update((item) => {
       return {
         ...item,
         color: color,
@@ -57,6 +57,7 @@ export class SharedService {
       };
     });
     this.changeStep2(true);
+    this.changeStep3(false);
   }
 
   setInfoOptionCosts(config: Config): void {
@@ -67,13 +68,22 @@ export class SharedService {
         range: config.range,
         speed: config.speed,
         id: config.id,
-        towHitch: false,
-        yoke: false,
-        description:config.description,
-        estimatePrice: this.estimatePrice(),
+        description: config.description,
       };
     });
+    this.refreshGlobaleCosts();
     this.changeStep3(true);
+  }
+
+  setAdditionallyConfig(optionConfig: OptionConfig): void {
+    this.optionConfig.update((item) => {
+      return {
+        ...item,
+        towHitchConfig: optionConfig.towHitch,
+        yokeConfig: optionConfig.yoke,
+        imgUrl: this.imgUrl(),
+      };
+    });
   }
 
   setInfoTowHitch(towHitch: boolean): void {
@@ -96,13 +106,13 @@ export class SharedService {
   }
 
   refreshGlobaleCosts(): void {
+
     this.optionConfig.update((item) => {
       return {
         ...item,
         estimatePrice: this.estimatePriceGlobale(),
         yokePrice: this.yokePrice(),
         towHitchPrice: this.towHitchPrice(),
-        imgUrl: this.imgUrl(),
       };
     });
   }
@@ -115,12 +125,6 @@ export class SharedService {
     this.isActivateStepper3.set(allowStep);
   }
 
-   public isAllowConfig():boolean{
-    return  this.isActivateStepper2() ? true :false;
-   }
-   public isAllowSummary():boolean{
-    return  this.isActivateStepper3() ? true :false;
-   }
   setImage(imgUrl: string): void {
     this.imgUrl.set(imgUrl);
   }

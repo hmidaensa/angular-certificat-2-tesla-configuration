@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AsyncPipe, JsonPipe,SharedModule,HttpClientModule],
+  imports: [AsyncPipe, JsonPipe,SharedModule,],
   providers:[SharedService],
   templateUrl: './app.component.html'
 })
